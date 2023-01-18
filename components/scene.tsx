@@ -1,6 +1,7 @@
 // @source: babylon js docs. code of babylonjs-hook package
 import { useEffect, useRef } from "react";
 import { Engine, Scene } from "@babylonjs/core";
+import styles from './scene.module.css'
 
 // @ts-ignore
 export const BabylonScene = ({ antialias, engineOptions, adaptToDeviceRatio, sceneOptions, onRender, onSceneReady, ...rest }) => {
@@ -42,5 +43,5 @@ export const BabylonScene = ({ antialias, engineOptions, adaptToDeviceRatio, sce
     };
   }, [antialias, engineOptions, adaptToDeviceRatio, sceneOptions, onRender, onSceneReady]);
 
-  return <canvas ref={reactCanvas} {...rest} />;
+  return <canvas className={styles.babylonCanvas} ref={reactCanvas} {...rest} />;
 };

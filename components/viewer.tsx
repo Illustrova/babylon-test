@@ -1,14 +1,11 @@
 import React from "react";
 import { FreeCamera, Vector3, HemisphericLight, MeshBuilder } from "@babylonjs/core";
-import { BabylonScene } from "./scene"; // uses above component in same directory
-// import SceneComponent from 'babylonjs-hook'; // if you install 'babylonjs-hook' NPM.
-// import "./App.css";
-
+import { BabylonScene } from "./scene";
 let box;
 
 const onSceneReady = (scene) => {
   // This creates and positions a free camera (non-mesh)
-  const camera = new FreeCamera("camera1", new Vector3(0, 5, -10), scene);
+  const camera = new FreeCamera("camera1", new Vector3(0, 5, -12), scene);
 
   // This targets the camera to scene origin
   camera.setTarget(Vector3.Zero());
@@ -29,9 +26,11 @@ const onSceneReady = (scene) => {
 
   // Move the box upward 1/2 its height
   box.position.y = 1;
+  
+  box.rotation.y = 10;
 
   // Our built-in 'ground' shape.
-  MeshBuilder.CreateGround("ground", { width: 6, height: 6 }, scene);
+  MeshBuilder.CreateGround("ground", { width: 12, height: 12 }, scene);
 };
 
 /**
@@ -42,7 +41,7 @@ const onRender = (scene) => {
     const deltaTimeInMillis = scene.getEngine().getDeltaTime();
 
     const rpm = 10;
-    box.rotation.y += (rpm / 60) * Math.PI * 2 * (deltaTimeInMillis / 1000);
+    // box.rotation.y += (rpm / 60) * Math.PI * 2 * (deltaTimeInMillis / 1000);
   }
 };
 
