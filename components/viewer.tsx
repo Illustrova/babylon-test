@@ -52,8 +52,13 @@ const onRender = (scene) => {
   }
 };
 
-export const Viewer = () => (
+
+export const Viewer = () => {
+  const selectMesh = useActionsStore(state => state.selectMesh) 
+
+  return (
   <div>
-    <BabylonScene antialias onSceneReady={onSceneReady} onRender={onRender} id="my-canvas" />
+    <BabylonScene antialias onSceneReady={onSceneReady} onRender={onRender} onPointerDown={selectMesh} id="my-canvas" />
   </div>
 );
+  }
