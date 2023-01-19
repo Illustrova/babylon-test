@@ -1,5 +1,5 @@
 import React from "react";
-import { FreeCamera, Vector3, HemisphericLight, MeshBuilder } from "@babylonjs/core";
+import { FreeCamera, Vector3, HemisphericLight, MeshBuilder, HighlightLayer } from "@babylonjs/core";
 import { BabylonScene } from "./scene";
 import { useActionsStore } from "../stores/actions-store";
 let box;
@@ -34,6 +34,10 @@ const onSceneReady = (scene) => {
   MeshBuilder.CreateGround("ground", { width: 12, height: 12 }, scene);
   
   useActionsStore.setState({ scene })
+  
+  const hl = new HighlightLayer("hl", scene);
+  useActionsStore.setState({ hl })
+
 };
 
 /**

@@ -13,7 +13,7 @@ export const BabylonScene = ({ antialias, engineOptions, adaptToDeviceRatio, sce
 
     if (!canvas) return;
 
-    const engine = new Engine(canvas, antialias, engineOptions, adaptToDeviceRatio);
+    const engine = new Engine(canvas, antialias, {stencil: true, ...engineOptions}, adaptToDeviceRatio);
     const scene = new Scene(engine, sceneOptions);
     if (scene.isReady()) {
       onSceneReady(scene);
