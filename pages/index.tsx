@@ -4,10 +4,14 @@ import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
 import { Viewer } from '../components/viewer'
 import { Button } from '../components/button'
+import { useActionsStore } from '../stores/actions-store'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const addCube = useActionsStore(state => state.addCube) 
+  const scene = useActionsStore(state => state.scene) 
+  
   return (
     <>
       <Head>
@@ -17,7 +21,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <nav className={styles.nav}>
-        <Button loading>Add cube</Button>
+        <Button onClick={addCube}>Add cube</Button>
       </nav>
       <main className={styles.main}>
          <Viewer/>

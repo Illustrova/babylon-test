@@ -67,7 +67,7 @@ export const Button = forwardRef<React.ElementRef<'button'>, ButtonProps>((
     <Wrapper
       ref={forwardedRef}
       type={Wrapper === 'button' ? type : undefined}
-      className={clsx(styles.button, styles[variant], styles[size], styles.loading)}
+      className={clsx(styles.button, styles[variant], styles[size], loading && styles.loading)}
       aria-disabled={disabled}
       aria-busy={loading}
       aria-live={loading ? 'polite' : undefined}

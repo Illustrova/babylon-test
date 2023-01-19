@@ -1,6 +1,7 @@
 import React from "react";
 import { FreeCamera, Vector3, HemisphericLight, MeshBuilder } from "@babylonjs/core";
 import { BabylonScene } from "./scene";
+import { useActionsStore } from "../stores/actions-store";
 let box;
 
 const onSceneReady = (scene) => {
@@ -31,6 +32,8 @@ const onSceneReady = (scene) => {
 
   // Our built-in 'ground' shape.
   MeshBuilder.CreateGround("ground", { width: 12, height: 12 }, scene);
+  
+  useActionsStore.setState({ scene })
 };
 
 /**
