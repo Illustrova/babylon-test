@@ -83,3 +83,5 @@ export const Button = forwardRef<React.ElementRef<'button'>, ButtonProps>((
     </Wrapper>
   );
 });
+
+Button.displayName = "Button"

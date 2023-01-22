@@ -45,7 +45,7 @@ export const BabylonScene = ({ antialias, engineOptions, adaptToDeviceRatio, sce
       canvas.removeEventListener("pointerdown", onPointerDown);
 
     };
-  }, [antialias, engineOptions, adaptToDeviceRatio, sceneOptions, onRender, onSceneReady]);
+  }, [antialias, engineOptions, adaptToDeviceRatio, sceneOptions, onRender, onSceneReady, onPointerDown]);
 
   return <canvas className={styles.babylonCanvas} ref={reactCanvas} {...rest} />;
 };
